@@ -1,4 +1,3 @@
-// src/store/store.js
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const calculateWPM = (charsTyped, timeElapsed) => {
