@@ -30,12 +30,17 @@ const TextInput = () => {
   );
 };
 
-// Стилизация с помощью styled-components
+// Стилизация с использованием медиазапросов для адаптации
 const InputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -45,6 +50,15 @@ const StyledInput = styled.input`
   border-radius: 5px;
   width: 400px;
   max-width: 90%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
 `;
 
 const RestartButton = styled.button`
@@ -59,6 +73,17 @@ const RestartButton = styled.button`
 
   &:hover {
     background-color: #0056b3;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
   }
 `;
 

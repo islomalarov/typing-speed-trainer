@@ -23,12 +23,20 @@ const TextDisplay = () => {
   return <TextContainer>{renderText()}</TextContainer>;
 };
 
-// Стилизация с помощью styled-components
+// Стилизация с использованием медиазапросов для адаптации
 const TextContainer = styled.div`
   font-size: 24px;
   line-height: 1.5;
   white-space: pre-wrap;
   word-wrap: break-word;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
 `;
 
 const StyledChar = styled.span`
