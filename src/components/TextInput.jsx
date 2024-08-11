@@ -1,7 +1,21 @@
+// src/components/TextInput.js
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateUserInput, restart } from '../store/store';
 
-const TextInput = ({ userInput, handleInputChange, onRestart }) => {
+const TextInput = () => {
+  const userInput = useSelector((state) => state.typing.userInput);
+  const dispatch = useDispatch();
+
+  const handleInputChange = (e) => {
+    dispatch(updateUserInput(e.target.value));
+  };
+
+  const handleRestart = () => {
+    dispatch(restart());
+  };
+
   return (
     <InputContainer>
       <StyledInput
@@ -11,7 +25,7 @@ const TextInput = ({ userInput, handleInputChange, onRestart }) => {
         placeholder="Start typing here..."
         autoFocus
       />
-      <RestartButton onClick={onRestart}>Restart</RestartButton>
+      <RestartButton onClick={handleRestart}>Restart</RestartButton>
     </InputContainer>
   );
 };

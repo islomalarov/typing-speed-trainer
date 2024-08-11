@@ -1,8 +1,12 @@
+// src/components/TextDisplay.js
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 // Компонент для отображения текста
-const TextDisplay = ({ text, userInput }) => {
+const TextDisplay = () => {
+  const { text, userInput } = useSelector((state) => state.typing);
+
   const renderText = () => {
     return text.split('').map((char, index) => {
       const isCorrect = userInput[index] === char;
