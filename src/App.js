@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import TextDisplay from './components/TextDisplay';
+import TextInput from './components/TextInput';
 
-function App() {
+const App = () => {
+  const [userInput, setUserInput] = useState('');
+  const sampleText = 'This is a sample text for typing.';
+
+  const handleInputChange = (e) => {
+    setUserInput(e.target.value);
+  };
+
+  const handleRestart = () => {
+    setUserInput('');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TextDisplay text={sampleText} userInput={userInput} />
+      <TextInput
+        userInput={userInput}
+        handleInputChange={handleInputChange}
+        onRestart={handleRestart}
+      />
     </div>
   );
-}
+};
 
 export default App;
